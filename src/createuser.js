@@ -47,7 +47,7 @@ function CreateUser(props) {
                 alert(users.data.message);
             } catch (error) {
                 console.log(error);
-                setIsLoading(true);
+                setIsLoading(false);
             }
             isLoading ? <Loading></Loading> :  history.push("/user") //redirection command to users component
         }
