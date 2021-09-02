@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Loading from './loading';
 
-const URL ="http://localhost:3001"
+const URL = "https://sridharrajaram-node-sbadmin.herokuapp.com"
 
 
 function EditProduct(props) {

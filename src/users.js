@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import Loading from "./loading";
 
-const URL ="http://localhost:3001"
+const URL = "https://sridharrajaram-node-sbadmin.herokuapp.com"
 
 export default function Users() {
 

@@ -5,7 +5,7 @@ import Loading from './loading';
 
 import  {useFormik} from 'formik';
 
-const URL ="http://localhost:3001"
+const URL = "https://sridharrajaram-node-sbadmin.herokuapp.com"
 
 function CreateProduct(props) {
 
