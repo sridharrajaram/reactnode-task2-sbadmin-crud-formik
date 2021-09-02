@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import Loading from './loading';
 import { useFormik } from 'formik';
 
-
+const URL ="http://localhost:3001"
 
 function EditUser(props) {
     
@@ -43,7 +43,7 @@ function EditUser(props) {
             console.log(values);
             try {
                 setIsLoading(true);
-                let users = await axios.put(`https://sridharrajaram-node-sbadmin.herokuapp.com/update-user/${props.match.params.id}`, values);
+                let users = await axios.put(`${URL}/update-user/${props.match.params.id}`, values);
                 console.log(users.data.message);
             } catch (error) {
                 console.log(error);
@@ -59,7 +59,7 @@ function EditUser(props) {
         //this code will executed when it entered into this component
         //we have user id, get user data by id and populate in form
         try {
-            let userData = await axios.get(`https://sridharrajaram-node-sbadmin.herokuapp.com/users/${props.match.params.id}`);
+            let userData = await axios.get(`${URL}/users/${props.match.params.id}`);
             console.log(userData);
             formik.setFieldValue("userName", userData.data.userName)
             formik.setFieldValue("position", userData.data.position)

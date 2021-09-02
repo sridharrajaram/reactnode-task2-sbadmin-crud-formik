@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Loading from "./loading";
 
-
+const URL ="http://localhost:3001"
 
 
 export default function Products() {
@@ -14,7 +14,7 @@ export default function Products() {
     // function to get data from server
     let getProduct = async () => {
         
-        let products = await axios.get(`https://sridharrajaram-node-sbadmin.herokuapp.com/products`);
+        let products = await axios.get(`${URL}/products`);
         console.log(products.data);
         setProductList([...products.data]);
         setIsLoading(false);
@@ -35,7 +35,7 @@ export default function Products() {
         if (confirm) {
             try {
                 
-                let delproduct = await axios.delete(`https://sridharrajaram-node-sbadmin.herokuapp.com/delete-product/${id}`)//deleting data in DOM
+                let delproduct = await axios.delete(`${URL}/delete-product/${id}`)//deleting data in DOM
                 console.log(delproduct.data.message);
                 getProduct();
             } catch (error) {
@@ -50,7 +50,7 @@ export default function Products() {
             <h1 class="h3 mb-2 text-gray-800">Products</h1>
             <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                 For more information about DataTables, please visit the <a target="_blank"
-                    href="https://datatables.net">official DataTables documentation</a>.</p>
+                    href="http//datatables.net">official DataTables documentation</a>.</p>
 
             <Link to="/create-product" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i>Create Product</Link>

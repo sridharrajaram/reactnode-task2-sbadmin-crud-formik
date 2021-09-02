@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import Loading from './loading';
 import {useFormik} from 'formik';
 
+const URL ="http://localhost:3001"
 
 function CreateUser(props) {
 
@@ -42,13 +43,12 @@ function CreateUser(props) {
             console.log(values);
             try {
                 setIsLoading(true);
-                let users = await axios.post(`https://sridharrajaram-node-sbadmin.herokuapp.com/create-user`,values);
-                console.log(users.data);
+                let users = await axios.post(`${URL}/create-user`,values);
+                alert(users.data.message);
             } catch (error) {
                 console.log(error);
                 setIsLoading(true);
             }
-    
             isLoading ? <Loading></Loading> :  history.push("/user") //redirection command to users component
         }
 

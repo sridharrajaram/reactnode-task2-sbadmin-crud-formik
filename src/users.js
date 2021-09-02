@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import Loading from "./loading";
 
-
+const URL ="http://localhost:3001"
 
 export default function Users() {
 
@@ -13,7 +13,7 @@ export default function Users() {
     // function to get data from server
     let getUser = async () => {
 
-        let users = await axios.get(`https://sridharrajaram-node-sbadmin.herokuapp.com/users`);
+        let users = await axios.get(`${URL}/users`);
         console.log(users.data);
         setUserList([...users.data]);
         setIsLoading(false);
@@ -34,7 +34,7 @@ export default function Users() {
         let confirm = window.confirm("Are you sure wanna delete the user?");
         if (confirm) {
             try {
-                let deluser = await axios.delete(`https://sridharrajaram-node-sbadmin.herokuapp.com/delete-user/${id}`) // deleting in actual dom
+                let deluser = await axios.delete(`${URL}/delete-user/${id}`) // deleting in actual dom
                 console.log(deluser.data.message);
                 getUser();
             } catch (error) {
@@ -48,7 +48,7 @@ export default function Users() {
 
             <h1 class="h3 mb-2 text-gray-800">Users</h1>
             <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                For more information about DataTables, please visit the <a href="https://datatables.net" target="_blank">
+                For more information about DataTables, please visit the <a href="http//datatables.net" target="_blank">
                     official DataTables documentation</a>.
             </p>
 

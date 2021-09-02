@@ -2,10 +2,10 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Loading from './loading';
+
 import  {useFormik} from 'formik';
 
-
-
+const URL ="http://localhost:3001"
 
 function CreateProduct(props) {
 
@@ -33,8 +33,8 @@ function CreateProduct(props) {
             console.log(values);
             try {
                 setIsLoading(true);
-                let products = await axios.post(`https://sridharrajaram-node-sbadmin.herokuapp.com/create-product`,values);
-                console.log(products.data);
+                let products = await axios.post(`${URL}/create-product`,values);
+                alert(products.data.message);
             } catch (error) {
                 console.log(error);
                 setIsLoading(true);
