@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Loading from './loading';
 
-const url = "https://sridharrajaram-node-sbadmin.herokuapp.com"
+
 
 
 function EditProduct(props) {
@@ -17,7 +17,7 @@ function EditProduct(props) {
         //this code will executed when it entered into this component
         //we have product id, get product data by id and populate in form
         async function fetch() {
-            let productData = await axios.get(`${url}/products/${props.match.params.id}`)
+            let productData = await axios.get(`https://sridharrajaram-node-sbadmin.herokuapp.com/products/${props.match.params.id}`)
             console.log(productData);
             formik.setFieldValue("productName",productData.data.productName);
             formik.setFieldValue("productPrice",productData.data.productPrice);
@@ -46,7 +46,7 @@ function EditProduct(props) {
             console.log(values);
             try {
                 setIsLoading(true);
-                let products = await axios.put(`${url}/update-product/${props.match.params.id}`, values)
+                let products = await axios.put(`https://sridharrajaram-node-sbadmin.herokuapp.com/update-product/${props.match.params.id}`, values)
                 console.log(products.data);
             } catch (error) {
                 console.log(error);
