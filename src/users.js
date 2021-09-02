@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import Loading from "./loading";
 
+const url = "https://sridharrajaram-node-sbadmin.herokuapp.com"
+
 export default function Users() {
 
     const [userList, setUserList] = useState([]);
@@ -11,7 +13,7 @@ export default function Users() {
     // function to get data from server
     let getUser = async () => {
 
-        let users = await axios.get("http://localhost:3001/users");
+        let users = await axios.get(`${url}/users`);
         console.log(users.data);
         setUserList([...users.data]);
         setIsLoading(false);
@@ -32,7 +34,7 @@ export default function Users() {
         let confirm = window.confirm("Are you sure wanna delete the user?");
         if (confirm) {
             try {
-                let deluser = await axios.delete(`http://localhost:3001/delete-user/${id}`) // deleting in actual dom
+                let deluser = await axios.delete(`${url}/delete-user/${id}`) // deleting in actual dom
                 console.log(deluser.data.message);
                 getUser();
             } catch (error) {

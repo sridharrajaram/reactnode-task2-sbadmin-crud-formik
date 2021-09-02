@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import Loading from './loading';
 import {useFormik} from 'formik';
 
+const url = "https://sridharrajaram-node-sbadmin.herokuapp.com"
 
 function CreateUser(props) {
 
@@ -42,7 +43,7 @@ function CreateUser(props) {
             console.log(values);
             try {
                 setIsLoading(true);
-                let users = await axios.post("http://localhost:3001/create-user",values);
+                let users = await axios.post(`${url}/create-user`,values);
                 console.log(users.data);
             } catch (error) {
                 console.log(error);

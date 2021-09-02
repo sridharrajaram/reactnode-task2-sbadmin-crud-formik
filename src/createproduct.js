@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 import Loading from './loading';
 import  {useFormik} from 'formik';
 
+const url = "https://sridharrajaram-node-sbadmin.herokuapp.com"
+
 
 function CreateProduct(props) {
 
@@ -31,7 +33,7 @@ function CreateProduct(props) {
             console.log(values);
             try {
                 setIsLoading(true);
-                let products = await axios.post("http://localhost:3001/create-product",values);
+                let products = await axios.post(`${url}/create-product`,values);
                 console.log(products.data);
             } catch (error) {
                 console.log(error);

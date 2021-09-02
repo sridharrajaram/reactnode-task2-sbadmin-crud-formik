@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Loading from "./loading";
 
+const url = "https://sridharrajaram-node-sbadmin.herokuapp.com"
+
 
 export default function Products() {
 
@@ -12,7 +14,7 @@ export default function Products() {
     // function to get data from server
     let getProduct = async () => {
         
-        let products = await axios.get("http://localhost:3001/products");
+        let products = await axios.get(`${url}/products`);
         console.log(products.data);
         setProductList([...products.data]);
         setIsLoading(false);
@@ -33,7 +35,7 @@ export default function Products() {
         if (confirm) {
             try {
                 
-                let delproduct = await axios.delete(`http://localhost:3001/delete-product/${id}`)//deleting data in DOM
+                let delproduct = await axios.delete(`${url}/delete-product/${id}`)//deleting data in DOM
                 console.log(delproduct.data.message);
                 getProduct();
             } catch (error) {
