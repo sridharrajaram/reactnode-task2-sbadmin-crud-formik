@@ -13,7 +13,7 @@ export default function Users() {
     // function to get data from server
     let getUser = async () => {
 
-        let users = await axios.get("https://sridharrajaram-node-sbadmin.herokuapp.com/users");
+        let users = await axios.get(`${URL}/users`);
         console.log(users.data);
         setUserList([...users.data]);
         setIsLoading(false);

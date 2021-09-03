@@ -43,7 +43,7 @@ function CreateUser(props) {
             console.log(values);
             try {
                 setIsLoading(true);
-                let users = await axios.post("https://sridharrajaram-node-sbadmin.herokuapp.com/create-user",values);
+                let users = await axios.post(`${URL}/create-user`,values);
                 alert(users.data.message);
             } catch (error) {
                 console.log(error);
